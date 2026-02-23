@@ -189,7 +189,7 @@ function CheckoutPageContent() {
 
   if (isLoading || !user) {
     return (
-      <div className="min-h-screen bg-background text-foreground dark flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
         </div>
@@ -198,7 +198,7 @@ function CheckoutPageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground dark">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav className="border-b border-border bg-card">
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -221,7 +221,7 @@ function CheckoutPageContent() {
 export default function CheckoutPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-background text-foreground dark flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
         </div>

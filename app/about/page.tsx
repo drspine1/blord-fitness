@@ -225,9 +225,9 @@ export default function AboutPage() {
                   Start Your Journey
                 </Button>
               </Link>
-              <Link href="/membership">
+              <Link href="/reviews">
                 <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary/10 w-full sm:w-auto">
-                  Explore Memberships
+                  Read Reviews
                 </Button>
               </Link>
             </div>

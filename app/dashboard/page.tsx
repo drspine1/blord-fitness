@@ -152,7 +152,7 @@ function DashboardContent() {
 
   if (isLoading || !user) {
     return (
-      <div className="min-h-screen bg-background text-foreground dark flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
           <p className="mt-4 text-muted-foreground">Loading...</p>
@@ -162,7 +162,7 @@ function DashboardContent() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground dark">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav className="border-b border-border bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
@@ -352,7 +352,10 @@ function DashboardContent() {
               <div className="flex gap-3">
                 <Button
                   variant="outline"
-                  onClick={() => handleAddToCalendar(selectedClass)}
+                  onClick={() => {
+                    handleAddToCalendar(selectedClass);
+                    setIsModalOpen(false);
+                  }}
                   className="flex-1"
                 >
                   Add to Calendar
@@ -376,7 +379,7 @@ function DashboardContent() {
 export default function Dashboard() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-background text-foreground dark flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
           <p className="mt-4 text-muted-foreground">Loading...</p>

@@ -229,7 +229,6 @@ Remember, fitness is a journey, not a destination. Celebrate progress over perfe
 const categories = ['All', ...Array.from(new Set(blogPosts.map(p => p.category)))];
 
 export default function BlogPage() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const [expandedPost, setExpandedPost] = useState<number | null>(null);
   
   // GSAP animation refs
@@ -238,10 +237,7 @@ export default function BlogPage() {
   const postsGridRef = useGsapStagger(0.6);
   const newsletterRef = useGsapScale(0.8);
 
-  const filteredPosts =
-    selectedCategory === 'All'
-      ? blogPosts
-      : blogPosts.filter(post => post.category === selectedCategory);
+  const filteredPosts = blogPosts;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -265,29 +261,6 @@ export default function BlogPage() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Expert tips, nutrition guides, training strategies, and wellness advice to optimize your fitness journey.
             </p>
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* Categories Filter */}
-      <section className="py-12 px-6 border-b border-border">
-        <div ref={categoriesRef} className="mx-auto max-w-6xl">
-          <ScrollAnimation animationType="fadeIn">
-            <div className="flex flex-wrap gap-3 justify-center">
-              {categories.map(category => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-2 rounded-full font-medium transition-all ${
-                    selectedCategory === category
-                      ? 'bg-secondary text-secondary-foreground'
-                      : 'bg-card text-foreground border border-border hover:border-secondary'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
           </ScrollAnimation>
         </div>
       </section>

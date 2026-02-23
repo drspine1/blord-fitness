@@ -142,7 +142,7 @@ export default function TrainersPage() {
 
   if (isLoading || !user) {
     return (
-      <div className="min-h-screen bg-background text-foreground dark flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
           <p className="mt-4 text-muted-foreground">Loading...</p>
@@ -212,7 +212,7 @@ export default function TrainersPage() {
       {/* Trainers Grid */}
       <section className="py-12 px-6">
         <div className="mx-auto max-w-6xl">
-          <div ref={trainersGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={trainersGridRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {TRAINERS.map((trainer) => (
               <Card key={trainer.id} className="bg-card border-border overflow-hidden hover:border-secondary/50 transition-all">
                 <div className="p-6 space-y-4">
