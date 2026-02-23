@@ -76,7 +76,6 @@ const MOCK_CLASSES: ClassDetails[] = [
 
 function DashboardContent() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedClass, setSelectedClass] = useState<ClassDetails | null>(null);
