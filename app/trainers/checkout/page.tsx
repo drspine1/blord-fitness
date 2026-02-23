@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
@@ -192,7 +192,7 @@ function CheckoutForm({ trainerId }: { trainerId: string }) {
   );
 }
 
-export default function TrainerCheckoutPage() {
+function TrainerCheckoutContent() {
   const searchParams = useSearchParams();
   const trainerId = searchParams.get('trainer') || 't1';
   const [user, setUser] = useState<any>(null);
@@ -235,5 +235,19 @@ export default function TrainerCheckoutPage() {
         </Elements>
       </main>
     </div>
+  );
+}
+
+export default function TrainerCheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background text-foreground dark flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
+        </div>
+      </div>
+    }>
+      <TrainerCheckoutContent />
+    </Suspense>
   );
 }

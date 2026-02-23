@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -15,7 +15,7 @@ interface User {
   lastName: string;
 }
 
-export default function MembershipPage() {
+function MembershipContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [user, setUser] = useState<User | null>(null);
@@ -229,5 +229,19 @@ export default function MembershipPage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function MembershipPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background text-foreground dark flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
+        </div>
+      </div>
+    }>
+      <MembershipContent />
+    </Suspense>
   );
 }
